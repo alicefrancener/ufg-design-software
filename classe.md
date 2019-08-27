@@ -33,6 +33,9 @@ Sw : software
 * (Prática em Eng. de Sw, TODAS)
 
 
+## Projeto escolhido
+
+13 - Projeto OCD.  Design de uma Restful API para a gestão dos dados coletados pelo cliente.
 
 
 
