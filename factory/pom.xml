@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.kyriosdata</groupId>
-    <artifactId>exemplo</artifactId>
+    <groupId>com.github.alicefrancener</groupId>
+    <artifactId>factory</artifactId>
     <packaging>jar</packaging>
     <version>1.0.1</version>
 
@@ -25,7 +25,7 @@
         necessidades específicas do projeto em questão.
     </description>
 
-    <url>https://github.com/kyriosdata/exemplo</url>
+    <url>https://github.com/alicefrancener/factory</url>
 
     <organization>
         <name>Instituto de Informática (UFG) - Fábrica de Software</name>
@@ -49,7 +49,7 @@
 
     <developers>
         <developer>
-            <id>kyriosdata</id>
+            <id>alicefrancener</id>
             <name>Fábio Nogueira de Lucena</name>
             <email>fabio@inf.ufg.br</email>
             <organization>Instituto de Informática (UFG)</organization>
@@ -58,11 +58,11 @@
     </developers>
 
     <scm>
-        <connection>scm:git:https://github.com/kyriosdata/exemplo.git
+        <connection>scm:git:https://github.com/alicefrancener/factory.git
         </connection>
-        <developerConnection>scm:git:https://github.com/kyriosdata/exemplo.git
+        <developerConnection>scm:git:https://github.com/alicefrancener/factory.git
         </developerConnection>
-        <url>https://github.com/kyriosdata/exemplo</url>
+        <url>https://github.com/alicefrancener/factory</url>
     </scm>
 
     <properties>
@@ -71,7 +71,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.mainClass>
-            com.github.kyriosdata.exemplo.application.console.ProgramaCalendario
+            com.github.alicefrancener.factory.application.console.ProgramaCalendario
         </project.mainClass>
 
         <tools.dir>${project.basedir}/tools</tools.dir>
@@ -171,7 +171,7 @@
         </pluginManagement>
 
         <!-- Define o nome do arquivo a ser gerado (.jar é acrescentada) -->
-        <finalName>exemplo</finalName>
+        <finalName>factory</finalName>
 
         <plugins>     
                  
@@ -572,11 +572,11 @@
                         <configuration>
                             <targetClasses>
                                 <param>
-                                    com.github.kyriosdata.exemplo.domain.Calendario
+                                    com.github.alicefrancener.factory.domain.Calendario
                                 </param>
                             </targetClasses>
                             <targetTests>
-                                <param>com.github.kyriosdata.exemplo.*</param>
+                                <param>com.github.alicefrancener.factory.*</param>
                             </targetTests>
                         </configuration>
                     </plugin>
@@ -606,7 +606,7 @@
                             <repository>spotify/foobar</repository>
                             <tag>${project.version}</tag>
                             <buildArgs>
-                                <JAR_FILE>target/exemplo-unico.jar</JAR_FILE>
+                                <JAR_FILE>target/factory-unico.jar</JAR_FILE>
                             </buildArgs>
                         </configuration>
                     </plugin>
@@ -691,7 +691,7 @@
                         <configuration>
                             <apiToken>${snyk.token}</apiToken>
                             <failOnSeverity>low</failOnSeverity>
-                            <org>kyriosdata</org>
+                            <org>alicefrancener</org>
                         </configuration>
                     </plugin>
 
@@ -738,7 +738,7 @@
                         <artifactId>maven-jar-plugin</artifactId>
                         <version>3.1.2</version>
                         <configuration>
-                            <finalName>exemplo-dir</finalName>
+                            <finalName>factory-dir</finalName>
                             <archive>
                                 <!-- Evita inclusão dir 'maven' em META-INF -->
                                 <addMavenDescriptor>false</addMavenDescriptor>
@@ -772,7 +772,7 @@
                                     <goal>single</goal>
                                 </goals>
                                 <configuration>
-                                    <finalName>exemplo-unico</finalName>
+                                    <finalName>factory-unico</finalName>
                                     <archive>
                                         <manifest>
                                             <mainClass>${project.mainClass}
