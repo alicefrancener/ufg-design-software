@@ -5,9 +5,11 @@ A API deverá oferecer serviços para a gestão dos dados coletados pelo cliente
 ## Atividades
 
  1. Entender quais são as funcionalidades do [Projeto Oral Cancer Detect - OCD](https://github.com/leandropedrosa/projeto-ocd)
- 1. Propor uma interface para atender as requisições dos módulos.
- 1. Identificar "boas" práticas a serem seguidas para o design de uma Restful API. 
- 
+ 2. Propor uma interface para atender as requisições dos módulos.
+ 3. Identificar "boas" práticas a serem seguidas para o design de uma Restful API. 
+ 4. Estabelecer um padrão de boas práticas
+ 5. Compreender o modelo de dados
+ 6. Estabelecer quais serão as requisições
  
  ## Requisitos preliminares
  
