@@ -9,6 +9,9 @@ public class PizzaTest {
 
     @Test
     public void builderCasoTrivial() {
+        // TODO permita-me ilustrar uma chamada abaixo com o valor "big", ou "Gigante", ...
+        // Já imaginou a dificuldade para pesquisa posterior?
+        // Isto ilustra a sugestão por um Enum. 
         Pizza.Builder pizza = new Pizza.Builder("grande")
                 .addBorda("catupiry");
         assertEquals("Pizza: grande catupiry sem queijo sem calabresa "
