@@ -3,6 +3,9 @@ package com.github.alicefrancener.builder.domain;
 
 public class Pizza {
 
+    // TODO em vez de String, melhor seria um Enum, Tamanho
+    // com as opções GRANDE, MEDIA, PEQUENA, por exemplo. 
+    // String é vaga, fonte de erros neste contexto...
     private String tamanho;
     private String borda;
     private boolean queijo;
@@ -113,6 +116,9 @@ public class Pizza {
                     tamanho, borda, getQueijo(), getCalabresa(), getCebola(),
                     getTomate());
 
+            // TODO você foi a única que utilizou este modelo e não removeu a documentação!
+            // TODO Entendo que este é o caso. Curiosamente, foi removido pelos demais??!!!
+            
             // Remove espaços caso não haja título, sobrenomes e/ou sufixos
             return parcial.trim().replaceAll(" +", " ");
         }
