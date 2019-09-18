@@ -12,3 +12,4 @@ Levantamento inicial de requisitos do projeto a ser desenvolvido | [requisitos](
 Implementação do padrão de projeto **Factory** | [factory](factory)
 Implementação do padrão de projeto **Builder** | [builder](builder)
 Implementação do padrão de projeto **Singleton** | [singleton](singleton)
+Implementação de **Injeção de Dependência** | [injeção de dependência](di)
