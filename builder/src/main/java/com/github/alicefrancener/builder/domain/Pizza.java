@@ -3,10 +3,7 @@ package com.github.alicefrancener.builder.domain;
 
 public class Pizza {
 
-    // TODO em vez de String, melhor seria um Enum, Tamanho
-    // com as opções GRANDE, MEDIA, PEQUENA, por exemplo. 
-    // String é vaga, fonte de erros neste contexto...
-    private String tamanho;
+    private Tamanho tamanho;
     private String borda;
     private boolean queijo;
     private boolean tomate;
@@ -14,7 +11,7 @@ public class Pizza {
     private boolean cebola;
 
         public static class Builder {
-            private String tamanho;
+            private Tamanho tamanho;
             private String borda;
             private boolean queijo;
             private boolean tomate;
@@ -26,7 +23,7 @@ public class Pizza {
              *
              * @param tamanho o tamanho é obrigatório.
              */
-            public Builder(final String tamanho) {
+            public Builder(final Tamanho tamanho) {
                 this.tamanho = tamanho;
             }
 
@@ -83,7 +80,7 @@ public class Pizza {
         }
 
         public String getTamanho() {
-            return tamanho;
+            return tamanho.toString();
         }
 
         public String getBorda() {
@@ -113,7 +110,8 @@ public class Pizza {
         @Override
         public String toString() {
             final String parcial = String.join(" ", "Pizza:",
-                    tamanho, borda, getQueijo(), getCalabresa(), getCebola(),
+                    tamanho.toString().toLowerCase(), borda, getQueijo(), getCalabresa(),
+                    getCebola(),
                     getTomate());
 
             // TODO você foi a única que utilizou este modelo e não removeu a documentação!

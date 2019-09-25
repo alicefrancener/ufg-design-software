@@ -9,7 +9,7 @@ public class PizzaTest {
 
     @Test
     public void builderCasoTrivial() {
-        Pizza.Builder pizza = new Pizza.Builder("grande")
+        Pizza.Builder pizza = new Pizza.Builder(Tamanho.GRANDE)
                 .addBorda("catupiry");
         assertEquals("Pizza: grande catupiry sem queijo sem calabresa "
                 + "sem cebola sem tomate", pizza.build().toString());
@@ -17,7 +17,7 @@ public class PizzaTest {
 
     @Test
     void verificaBuilder() {
-        Pizza.Builder builder = new Pizza.Builder("pequena");
+        Pizza.Builder builder = new Pizza.Builder(Tamanho.PEQUENA);
         Pizza pizza = builder
                 .addBorda("sem borda")
                 .addTomate(true)
