@@ -1,14 +1,14 @@
 
-package com.github.alicefrancener.classe.domain;
+package com.github.alicefrancener.autocloseable.domain;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Classe extends FileInputStream implements AutoCloseable {
+public class AutoCloseableClasse extends FileInputStream implements AutoCloseable {
 
 
-    public Classe(String name) throws FileNotFoundException {
+    public AutoCloseableClasse(String name) throws FileNotFoundException {
         super(name);
     }
 
