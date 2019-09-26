@@ -27,6 +27,9 @@ public class NumeroTelefonico {
         if(obj instanceof NumeroTelefonico){
             NumeroTelefonico objNumeroTelefonico = (NumeroTelefonico) obj;
 
+            // FIXME igualdade de String com ==? Só o professor para induzir a este erro!!!!!
+            // Lembra-se da pergunta do Werberth? Qual a diferença entre == e equals?
+            // O correto é this.codigoPais.equals(objNumeroTelefonico.codigoPais) ...
             return this.codigoPais == objNumeroTelefonico.codigoPais &&
                     this.codigoEstado == objNumeroTelefonico.codigoEstado &&
                     this.numeroTelefone == objNumeroTelefonico.numeroTelefone;
