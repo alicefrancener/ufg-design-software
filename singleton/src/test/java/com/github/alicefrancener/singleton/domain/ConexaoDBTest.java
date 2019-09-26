@@ -3,16 +3,15 @@ package com.github.alicefrancener.singleton.domain;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
-public class ClasseTest {
+class ConexaoDBTest {
 
     @Test
     void duasConexoesMesmaInstancia() {
         ConexaoDB conexao = ConexaoDB.getInstance();
-        conexao.setSenha("senha123");
-
         ConexaoDB conexao2 = ConexaoDB.getInstance();
-        assertEquals(conexao.getSenha(),conexao2.getSenha());
+        assertSame(conexao, conexao2);
     }
 
 }

@@ -40,10 +40,13 @@ public final class ConexaoDB {
     }
 
     /**
-     * Métodos get e set
+     * FIXME
+     * Se há uma única instância de uma classe ConexaoDB, então não faz
+     * sentido permitir a ataulização nem da senha nem do usuário, pois não
+     * haveria nenhum efeito??!!!
+     *
+     * @param senha
      */
-
-
     public void setSenha(String senha) {
         this.senha = senha;
     }
