@@ -27,9 +27,9 @@ public class NumeroTelefonico {
         if(obj instanceof NumeroTelefonico){
             NumeroTelefonico objNumeroTelefonico = (NumeroTelefonico) obj;
 
-            return this.codigoPais == objNumeroTelefonico.codigoPais &&
-                    this.codigoEstado == objNumeroTelefonico.codigoEstado &&
-                    this.numeroTelefone == objNumeroTelefonico.numeroTelefone;
+            return this.codigoPais.equals(objNumeroTelefonico.codigoPais) &&
+                    this.codigoEstado.equals(objNumeroTelefonico.codigoEstado) &&
+                    this.numeroTelefone.equals(objNumeroTelefonico.numeroTelefone);
         }
 
         return false;
