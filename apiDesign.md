@@ -16,3 +16,7 @@ O Guia de Design sugere as seguintes etapas ao projetar APIs orientadas a recurs
 - Decida os esquemas de nomes de recursos com base em tipos e relacionamentos.
 - Decida os esquemas de recursos.
 - Anexe um conjunto mínimo de métodos aos recursos.
+
+### API projetada
+
+Você está usando algum serviço para o _design_ da API? Se afirmativo, coloque o link aqui. Caso contrário, coloque aqui no seu repositório os resultados obtidos, parciais para que eu possa contribuir. 
