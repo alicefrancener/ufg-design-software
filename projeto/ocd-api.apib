@@ -1,0 +1,43 @@
+FORMAT: 1A
+
+# Oral Cancer Detect API
+Oral Cancer Detetec API.
+
+# Group Locais de Atendimento
+
+## Locais de Atendimento [/locaisDeAtendimento]
+
+### Obter Locais de Atendimento [GET]
++ Response 200 (application/json)
+    + Attributes (array[LocalDeAtendimento])
+
+### Criar novo Local de Atendimento [POST]
+
+## Locais de Atendimento por região [/locaisDeAtendimento/{regiao}]
+
+// talvez aqui faça mais sentido ter uma cidade também [/cidades/{id}/locaisDeAtendimento/{regiao}]
+// ou [/locaisDeAtendimento/{cidade&regiao}]
+
+### Obter Locais de Atendimento por região [GET]
++ Parameters
+    + regiao (string) - Região de um local de atendimento.
++ Response 200 (application/json)
+    + Attributes (array[LocalDeAtendimento])
++ Response 201 (application/json)
+    { "message" : "Você não está autorizado a ver o recurso"}
++ Response 401 (application/json)
+    { "message": "Não autorizado" }
++ Response 403 (application/json)
+    { "message": "Acessando o recurso que você estava tentando acessar é proibido"}
++ Response 404 (application/json)
+    { "message": "O recurso que você estava tentando acessar não foi encontrado"}
+
+# Data Structures
+
+## LocalDeAtendimento
++ id (string)
++ nome (string) - Nome do Local de Atendimento
++ tipo (string) - Tipo do Local de Atendimento
++ regiao (string) - Região do Local de Atendimento
++ bairro (string) - Bairro do Local de Atendimento
++ cidade (string) - Cidade do Local de Atendimento
