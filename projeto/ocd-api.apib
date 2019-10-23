@@ -10,27 +10,54 @@ Oral Cancer Detetec API.
 ### Obter Locais de Atendimento [GET]
 + Response 200 (application/json)
     + Attributes (array[LocalDeAtendimento])
-
-### Criar novo Local de Atendimento [POST]
++ Response 401 (application/json)
+    { "message": "Não autorizado" }
++ Response 404 (application/json)
+    { "message": "O servidor não pode encontrar o recurso solicitado."}
 
 ## Locais de Atendimento por região [/locaisDeAtendimento/{regiao}]
-
-// talvez aqui faça mais sentido ter uma cidade também [/cidades/{id}/locaisDeAtendimento/{regiao}]
-// ou [/locaisDeAtendimento/{cidade&regiao}]
 
 ### Obter Locais de Atendimento por região [GET]
 + Parameters
     + regiao (string) - Região de um local de atendimento.
 + Response 200 (application/json)
     + Attributes (array[LocalDeAtendimento])
-+ Response 201 (application/json)
-    { "message" : "Você não está autorizado a ver o recurso"}
 + Response 401 (application/json)
     { "message": "Não autorizado" }
-+ Response 403 (application/json)
-    { "message": "Acessando o recurso que você estava tentando acessar é proibido"}
 + Response 404 (application/json)
-    { "message": "O recurso que você estava tentando acessar não foi encontrado"}
+    { "message": "O servidor não pode encontrar o recurso solicitado."}
+
+# Group Fatores de Risco
+
+## Fatores de Risco [/fatoresDeRisco]
+
+### Obter Fatores de Risco [GET]
++ Response 200 (application/json)
+    + Attributes (array[FatorDeRisco])
++ Response 401 (application/json)
+    { "message": "Não autorizado" }
++ Response 404 (application/json)
+    { "message": "O servidor não pode encontrar o recurso solicitado."}
+    
+# Group Lesões
+
+## Lesões [/lesoes]
+
+### Obter Lesões [GET]
++ Response 200 (application/json)
+    + Attributes (array[Lesao])
++ Response 401 (application/json)
+    { "message": "Não autorizado" }
++ Response 404 (application/json)
+    { "message": "O servidor não pode encontrar o recurso solicitado."}
+
+# Group Rastreamento
+
+## Rastreamentos [/rastreamentos]
+
+### Criar Rastreamento [POST]
++ Parameters
+    + [Rastreamento]
 
 # Data Structures
 
@@ -42,6 +69,14 @@ Oral Cancer Detetec API.
 + bairro (string) - Bairro do Local de Atendimento
 + cidade (string) - Cidade do Local de Atendimento
 
+## FatorDeRisco
++ id (string)
++ nome (string) - Nome do Local de Atendimento
+
+## Lesao
++ id (string)
++ nome (string) - Nome do Local de Atendimento
+
 ## Paciente
 + id (string)
 + nomePaciente (string)
@@ -49,3 +84,19 @@ Oral Cancer Detetec API.
 + ultimaData (string)
 + ultimoProcedimento (string)
 + status (string)
+
+## Rastreamento
++ id (string);
++ nomePaciente (string);
++ nomeMae (string);
++ bairro (string);
++ cidade (string);
++ dataNascimento;
++ sexo (string);
++ cpf (string);
++ email (string);
++ LocalDeAtendimento;
++ FatorDeRisco;
++ Lesao;
++ dataRetornoSugerido;
++ dataSugeridaRetorno;
