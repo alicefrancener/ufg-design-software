@@ -1,0 +1,311 @@
+swagger: '2.0'
+info:
+  version: 'v1'
+  title: 'Oral Cancer Detect API'
+  description: ''
+schemes:
+ - https
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /locaisDeAtendimento:
+    get:
+      description: ''
+      summary: Obter Locais de Atendimento
+      tags:
+      - Locais de Atendimento
+      operationId: LocaisDeAtendimentoGet
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LocalDeAtendimento'
+          examples:
+            application/json:
+            - id: ''
+              nome: ''
+              tipo: ''
+              regiao: ''
+              bairro: ''
+              cidade: ''
+          headers: {}
+        401:
+          description: Unexpected error in API call. See HTTP response body for details.
+          schema:
+            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
+          examples:
+            application/json:
+              message: Não autorizado
+        404:
+          description: Unexpected error in API call. See HTTP response body for details.
+          schema:
+            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
+          examples:
+            application/json:
+              message: O servidor não pode encontrar o recurso solicitado.
+  /locaisDeAtendimento/{regiao}:
+    get:
+      description: ''
+      summary: Obter Locais de Atendimento por região
+      tags:
+      - Locais de Atendimento
+      operationId: LocaisDeAtendimentoByRegiaoGet
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: regiao
+        in: path
+        required: true
+        type: string
+        description: Região de um local de atendimento.
+      responses:
+        200:
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LocalDeAtendimento'
+          examples:
+            application/json:
+            - id: ''
+              nome: ''
+              tipo: ''
+              regiao: ''
+              bairro: ''
+              cidade: ''
+          headers: {}
+        401:
+          description: Unexpected error in API call. See HTTP response body for details.
+          schema:
+            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
+          examples:
+            application/json:
+              message: Não autorizado
+        404:
+          description: Unexpected error in API call. See HTTP response body for details.
+          schema:
+            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
+          examples:
+            application/json:
+              message: O servidor não pode encontrar o recurso solicitado.
+  /fatoresDeRisco:
+    get:
+      description: ''
+      summary: Obter Fatores de Risco
+      tags:
+      - Fatores de Risco
+      operationId: FatoresDeRiscoGet
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FatorDeRisco'
+          examples:
+            application/json:
+            - id: ''
+              nome: ''
+          headers: {}
+        401:
+          description: Unexpected error in API call. See HTTP response body for details.
+          schema:
+            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
+          examples:
+            application/json:
+              message: Não autorizado
+        404:
+          description: Unexpected error in API call. See HTTP response body for details.
+          schema:
+            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
+          examples:
+            application/json:
+              message: O servidor não pode encontrar o recurso solicitado.
+  /lesoes:
+    get:
+      description: ''
+      summary: Obter Lesões
+      tags:
+      - Lesões
+      operationId: LesoesGet
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Lesao'
+          examples:
+            application/json:
+            - id: ''
+              nome: ''
+          headers: {}
+        401:
+          description: Unexpected error in API call. See HTTP response body for details.
+          schema:
+            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
+          examples:
+            application/json:
+              message: Não autorizado
+        404:
+          description: Unexpected error in API call. See HTTP response body for details.
+          schema:
+            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
+          examples:
+            application/json:
+              message: O servidor não pode encontrar o recurso solicitado.
+  /rastreamentos:
+    get:
+      description: ''
+      summary: Criar Rastreamento
+      tags:
+      - Rastreamento
+      operationId: RastreamentosGet
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+          headers: {}
+definitions:
+  LocalDeAtendimento:
+    title: LocalDeAtendimento
+    example:
+      id: ''
+      nome: ''
+      tipo: ''
+      regiao: ''
+      bairro: ''
+      cidade: ''
+    type: object
+    properties:
+      id:
+        type: string
+      nome:
+        description: Nome do Local de Atendimento
+        type: string
+      tipo:
+        description: Tipo do Local de Atendimento
+        type: string
+      regiao:
+        description: Região do Local de Atendimento
+        type: string
+      bairro:
+        description: Bairro do Local de Atendimento
+        type: string
+      cidade:
+        description: Cidade do Local de Atendimento
+        type: string
+  FatorDeRisco:
+    title: FatorDeRisco
+    example:
+      id: ''
+      nome: ''
+    type: object
+    properties:
+      id:
+        type: string
+      nome:
+        description: Nome do Local de Atendimento
+        type: string
+  Lesao:
+    title: Lesao
+    example:
+      id: ''
+      nome: ''
+    type: object
+    properties:
+      id:
+        type: string
+      nome:
+        description: Nome do Local de Atendimento
+        type: string
+  Paciente:
+    title: Paciente
+    type: object
+    properties:
+      id:
+        type: string
+      nomePaciente:
+        type: string
+      regiao:
+        type: string
+      ultimaData:
+        type: string
+      ultimoProcedimento:
+        type: string
+      status:
+        type: string
+  Rastreamento:
+    title: Rastreamento
+    type: object
+    properties:
+      id:
+        type: string
+      nomePaciente:
+        type: string
+      nomeMae:
+        type: string
+      bairro:
+        type: string
+      cidade:
+        type: string
+      dataNascimento;:
+        type: string
+      sexo:
+        type: string
+      cpf:
+        type: string
+      email:
+        type: string
+      LocalDeAtendimento;:
+        type: string
+      FatorDeRisco;:
+        type: string
+      Lesao;:
+        type: string
+      dataRetornoSugerido;:
+        type: string
+      dataSugeridaRetorno;:
+        type: string
+  ObterLocaisdeAtendimentoporregião404response:
+    title: ObterLocaisdeAtendimentoporregião404response
+    example:
+      message: O servidor não pode encontrar o recurso solicitado.
+    type: object
+    properties:
+      message:
+        type: string
+    required:
+    - message
+tags:
+- name: Locais de Atendimento
+  description: ''
+- name: Fatores de Risco
+  description: ''
+- name: Lesões
+  description: ''
+- name: Rastreamento
+  description: ''
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /alicefrancener/api-ocd/v1
