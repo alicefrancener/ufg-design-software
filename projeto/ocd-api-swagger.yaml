@@ -2,7 +2,6 @@ swagger: '2.0'
 info:
   version: 'v1'
   title: 'Oral Cancer Detect API'
-  description: ''
 schemes:
  - https
 consumes:
@@ -27,7 +26,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/LocalDeAtendimento'
+              $ref: '#/components/schemas/LocalDeAtendimento'
           examples:
             application/json:
             - id: ''
@@ -39,15 +38,11 @@ paths:
           headers: {}
         401:
           description: Unexpected error in API call. See HTTP response body for details.
-          schema:
-            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
           examples:
             application/json:
               message: Não autorizado
         404:
           description: Unexpected error in API call. See HTTP response body for details.
-          schema:
-            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
           examples:
             application/json:
               message: O servidor não pode encontrar o recurso solicitado.
@@ -73,7 +68,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/LocalDeAtendimento'
+              $ref: '#/components/schemas/LocalDeAtendimento'
           examples:
             application/json:
             - id: ''
@@ -85,15 +80,11 @@ paths:
           headers: {}
         401:
           description: Unexpected error in API call. See HTTP response body for details.
-          schema:
-            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
           examples:
             application/json:
               message: Não autorizado
         404:
           description: Unexpected error in API call. See HTTP response body for details.
-          schema:
-            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
           examples:
             application/json:
               message: O servidor não pode encontrar o recurso solicitado.
@@ -114,7 +105,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/FatorDeRisco'
+              $ref: '#/components/schemas/FatorDeRisco'
           examples:
             application/json:
             - id: ''
@@ -122,15 +113,11 @@ paths:
           headers: {}
         401:
           description: Unexpected error in API call. See HTTP response body for details.
-          schema:
-            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
           examples:
             application/json:
               message: Não autorizado
         404:
           description: Unexpected error in API call. See HTTP response body for details.
-          schema:
-            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
           examples:
             application/json:
               message: O servidor não pode encontrar o recurso solicitado.
@@ -151,7 +138,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Lesao'
+              $ref: '#/components/schemas/Lesao'
           examples:
             application/json:
             - id: ''
@@ -159,15 +146,11 @@ paths:
           headers: {}
         401:
           description: Unexpected error in API call. See HTTP response body for details.
-          schema:
-            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
           examples:
             application/json:
               message: Não autorizado
         404:
           description: Unexpected error in API call. See HTTP response body for details.
-          schema:
-            $ref: '#/definitions/ObterLocaisdeAtendimentoporregi%C3%A3o404response'
           examples:
             application/json:
               message: O servidor não pode encontrar o recurso solicitado.
@@ -186,126 +169,124 @@ paths:
         200:
           description: ''
           headers: {}
-definitions:
-  LocalDeAtendimento:
-    title: LocalDeAtendimento
-    example:
-      id: ''
-      nome: ''
-      tipo: ''
-      regiao: ''
-      bairro: ''
-      cidade: ''
-    type: object
-    properties:
-      id:
-        type: string
-      nome:
-        description: Nome do Local de Atendimento
-        type: string
-      tipo:
-        description: Tipo do Local de Atendimento
-        type: string
-      regiao:
-        description: Região do Local de Atendimento
-        type: string
-      bairro:
-        description: Bairro do Local de Atendimento
-        type: string
-      cidade:
-        description: Cidade do Local de Atendimento
-        type: string
-  FatorDeRisco:
-    title: FatorDeRisco
-    example:
-      id: ''
-      nome: ''
-    type: object
-    properties:
-      id:
-        type: string
-      nome:
-        description: Nome do Local de Atendimento
-        type: string
-  Lesao:
-    title: Lesao
-    example:
-      id: ''
-      nome: ''
-    type: object
-    properties:
-      id:
-        type: string
-      nome:
-        description: Nome do Local de Atendimento
-        type: string
-  Paciente:
-    title: Paciente
-    type: object
-    properties:
-      id:
-        type: string
-      nomePaciente:
-        type: string
-      regiao:
-        type: string
-      ultimaData:
-        type: string
-      ultimoProcedimento:
-        type: string
-      status:
-        type: string
-  Rastreamento:
-    title: Rastreamento
-    type: object
-    properties:
-      id:
-        type: string
-      nomePaciente:
-        type: string
-      nomeMae:
-        type: string
-      bairro:
-        type: string
-      cidade:
-        type: string
-      dataNascimento;:
-        type: string
-      sexo:
-        type: string
-      cpf:
-        type: string
-      email:
-        type: string
-      LocalDeAtendimento;:
-        type: string
-      FatorDeRisco;:
-        type: string
-      Lesao;:
-        type: string
-      dataRetornoSugerido;:
-        type: string
-      dataSugeridaRetorno;:
-        type: string
-  ObterLocaisdeAtendimentoporregião404response:
-    title: ObterLocaisdeAtendimentoporregião404response
-    example:
-      message: O servidor não pode encontrar o recurso solicitado.
-    type: object
-    properties:
-      message:
-        type: string
-    required:
-    - message
+components:
+  schemas:
+    Usuario:
+      title: Usuário
+      description: Usuário
+      type: object
+      properties:
+        id: string
+        status: string
+        cpf: string
+        nome: string
+        password: string
+        cargo: string
+        regiao: string
+        email: string
+    LocalDeAtendimento:
+      title: Local de Atendimento
+      description: Local de Atendimento
+      type: object
+      properties:
+        id:
+          type: string
+        nome:
+          description: Nome do Local de Atendimento
+          type: string
+        tipo:
+          description: Tipo do Local de Atendimento
+          type: string
+        regiao:
+          description: Região do Local de Atendimento
+          type: string
+        bairro:
+          description: Bairro do Local de Atendimento
+          type: string
+        cidade:
+          description: Cidade do Local de Atendimento
+          type: string
+    FatorDeRisco:
+      title: Fator de Risco
+      description: Fator de Risco
+      type: object
+      properties:
+        id:
+          type: string
+        nome:
+          type: string
+    Lesao:
+      title: Lesao
+      description: Lesao
+      type: object
+      properties:
+        id:
+          type: string
+        nome:
+          type: string
+    Paciente:
+      title: Paciente
+      description: Paciente
+      type: object
+      properties:
+        id:
+          type: string
+        nomePaciente:
+          type: string
+        regiao:
+          type: string
+        ultimaData:
+          type: string
+        ultimoProcedimento:
+          type: string
+        status:
+          type: string
+    Rastreamento:
+      title: Rastreamento
+      description: Rastreamento
+      type: object
+      properties:
+        id:
+          type: string
+        paciente:
+          $ref: '#/components/schemas/Paciente'
+        nomeMae:
+          type: string
+        bairro:
+          type: string
+        cidade:
+          type: string
+        dataNascimento;:
+          type: string
+        sexo:
+          type: string
+        cpf:
+          type: string
+        email:
+          type: string
+        dataAtendimento:
+          type: string
+        dataSugeridaRetorno:
+          type: string
+        localAtendimento:
+          $ref: '#/components/schemas/LocalDeAtendimento'
+        fatoresDeRisco;:
+          type: array
+          items:
+            $ref: '#/components/schemas/FatorDeRisco'
+        lesoes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lesao'
 tags:
 - name: Locais de Atendimento
-  description: ''
+  description: 'Coleção de Locais de Atendimento'
 - name: Fatores de Risco
-  description: ''
+  description: 'Coleção de Fatores de Risco'
 - name: Lesões
-  description: ''
+  description: 'Coleção de Lesões'
 - name: Rastreamento
-  description: ''
+  description: 'Coleção de Rastreamento'
 # Added by API Auto Mocking Plugin
 host: virtserver.swaggerhub.com
 basePath: /alicefrancener/api-ocd/v1
