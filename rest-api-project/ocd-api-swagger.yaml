@@ -3,14 +3,14 @@ openapi: 3.0.0
 info:
   title: 'Oral Cancer Detect API'
   description: 'Exemplo de API para gerenciar dados de saúde.'
-  version: 'v1'
+  version: '1.0.0'
   contact: 
     name: 'Alice Francener'
     url: 'https://github.com/alicefrancener'
   license:
     name: 'MIT License'
 servers:
-  - url: http://localhost
+  - url: 'http://localhost:8080'
     description: Servidor local
 paths:
   /locaisDeAtendimento:
@@ -25,20 +25,13 @@ paths:
       parameters: []
       responses:
         200:
-          description: ''
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/LocalDeAtendimento'
-          examples:
+          description: 'Lista de locais de atendimento'
+          content:
             application/json:
-            - id: ''
-              nome: ''
-              tipo: ''
-              regiao: ''
-              bairro: ''
-              cidade: ''
-          headers: {}
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LocalDeAtendimento'
         401:
           description: Unexpected error in API call. See HTTP response body for details.
           examples:
@@ -67,20 +60,13 @@ paths:
         description: Região de um local de atendimento.
       responses:
         200:
-          description: ''
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/LocalDeAtendimento'
-          examples:
+          description: 'Lista de locais de atendimento da região'
+          content:
             application/json:
-            - id: ''
-              nome: ''
-              tipo: ''
-              regiao: ''
-              bairro: ''
-              cidade: ''
-          headers: {}
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LocalDeAtendimento'
         401:
           description: Unexpected error in API call. See HTTP response body for details.
           examples:
@@ -101,11 +87,13 @@ paths:
       - application/json
       responses:
         200:
-          description: OK
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/FatorDeRisco'
+          description: 'Lista de fatores de risco'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FatorDeRisco'
         401:
           description: Unexpected error in API call. See HTTP response body for details.
           examples:
@@ -129,16 +117,13 @@ paths:
       parameters: []
       responses:
         200:
-          description: ''
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Lesao'
-          examples:
+          description: 'Lista de lesões'
+          content:
             application/json:
-            - id: ''
-              nome: ''
-          headers: {}
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lesao'
         401:
           description: Unexpected error in API call. See HTTP response body for details.
           examples:
@@ -162,8 +147,13 @@ paths:
       parameters: []
       responses:
         200:
-          description: ''
-          headers: {}
+          description: 'Lista de rastreamentos'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rastreamento'
 components:
   schemas:
     Usuario:
