@@ -1,13 +1,17 @@
 swagger: '2.0'
+openapi: 3.0.0
 info:
-  version: 'v1'
   title: 'Oral Cancer Detect API'
-schemes:
- - https
-consumes:
-- application/json
-produces:
-- application/json
+  description: 'Exemplo de API para gerenciar dados de saúde.'
+  version: 'v1'
+  contact: 
+    name: 'Alice Francener'
+    url: 'https://github.com/alicefrancener'
+  license:
+    name: 'MIT License'
+servers:
+  - url: http://localhost
+    description: Servidor local
 paths:
   /locaisDeAtendimento:
     get:
@@ -15,8 +19,7 @@ paths:
       summary: Obter Locais de Atendimento
       tags:
       - Locais de Atendimento
-      operationId: LocaisDeAtendimentoGet
-      deprecated: false
+      operationId: getAll
       produces:
       - application/json
       parameters: []
@@ -90,27 +93,19 @@ paths:
               message: O servidor não pode encontrar o recurso solicitado.
   /fatoresDeRisco:
     get:
-      description: ''
-      summary: Obter Fatores de Risco
+      summary: Obter todos os fatores de risco
       tags:
       - Fatores de Risco
-      operationId: FatoresDeRiscoGet
-      deprecated: false
+      operationId: getAllFatoresDeRisco
       produces:
       - application/json
-      parameters: []
       responses:
         200:
-          description: ''
+          description: OK
           schema:
             type: array
             items:
               $ref: '#/components/schemas/FatorDeRisco'
-          examples:
-            application/json:
-            - id: ''
-              nome: ''
-          headers: {}
         401:
           description: Unexpected error in API call. See HTTP response body for details.
           examples:
@@ -248,26 +243,12 @@ components:
       properties:
         id:
           type: string
-        paciente:
-          $ref: '#/components/schemas/Paciente'
-        nomeMae:
-          type: string
-        bairro:
-          type: string
-        cidade:
-          type: string
-        dataNascimento;:
-          type: string
-        sexo:
-          type: string
-        cpf:
-          type: string
-        email:
-          type: string
         dataAtendimento:
           type: string
         dataSugeridaRetorno:
           type: string
+        paciente:
+          $ref: '#/components/schemas/Paciente'
         localAtendimento:
           $ref: '#/components/schemas/LocalDeAtendimento'
         fatoresDeRisco;:
@@ -279,14 +260,13 @@ components:
           items:
             $ref: '#/components/schemas/Lesao'
 tags:
-- name: Locais de Atendimento
-  description: 'Coleção de Locais de Atendimento'
-- name: Fatores de Risco
-  description: 'Coleção de Fatores de Risco'
-- name: Lesões
-  description: 'Coleção de Lesões'
-- name: Rastreamento
-  description: 'Coleção de Rastreamento'
-# Added by API Auto Mocking Plugin
-host: virtserver.swaggerhub.com
-basePath: /alicefrancener/api-ocd/v1
+  - name: Locais de Atendimento
+    description: 'Coleção de Locais de Atendimento'
+  - name: Fatores de Risco
+    description: 'Coleção de Fatores de Risco'
+  - name: Lesões
+    description: 'Coleção de Lesões'
+  - name: Rastreamento
+    description: 'Coleção de Rastreamento'
+schemes:
+ - https
