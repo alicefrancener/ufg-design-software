@@ -6,3 +6,9 @@
 # Maven
 log/
 target/
+
+# Visual Code
+.project
+.vscode/
+.classpath
+.settings/
