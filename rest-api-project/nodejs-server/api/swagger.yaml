@@ -1,0 +1,143 @@
+---
+swagger: "2.0"
+info:
+  description: "Exemplo de API para gerenciar dados de saúde."
+  version: "1.0.0"
+  title: "Oral Cancer Detect API"
+  contact:
+    name: "Alice Francener"
+    url: "https://github.com/alicefrancener"
+  license:
+    name: "MIT License"
+host: "virtserver.swaggerhub.com"
+basePath: "/alicefrancener/api-ocd/v1"
+tags:
+- name: "Locais de Atendimento"
+  description: "Coleção de Locais de Atendimento"
+- name: "Fatores de Risco"
+  description: "Coleção de Fatores de Risco"
+- name: "Lesões"
+  description: "Coleção de Lesões"
+- name: "Rastreamento"
+  description: "Coleção de Rastreamento"
+schemes:
+- "https"
+paths:
+  /locaisDeAtendimento:
+    get:
+      tags:
+      - "Locais de Atendimento"
+      summary: "Obter Locais de Atendimento"
+      description: ""
+      operationId: "getAll"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Lista de locais de atendimento"
+        401:
+          description: "Unexpected error in API call. See HTTP response body for details."
+          examples:
+            application/json:
+              message: "Não autorizado"
+        404:
+          description: "Unexpected error in API call. See HTTP response body for details."
+          examples:
+            application/json:
+              message: "O servidor não pode encontrar o recurso solicitado."
+      x-swagger-router-controller: "LocaisDeAtendimento"
+  /locaisDeAtendimento/{regiao}:
+    get:
+      tags:
+      - "Locais de Atendimento"
+      summary: "Obter Locais de Atendimento por região"
+      description: ""
+      operationId: "LocaisDeAtendimentoByRegiaoGet"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "regiao"
+        in: "path"
+        description: "Região de um local de atendimento."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Lista de locais de atendimento da região"
+        401:
+          description: "Unexpected error in API call. See HTTP response body for details."
+          examples:
+            application/json:
+              message: "Não autorizado"
+        404:
+          description: "Unexpected error in API call. See HTTP response body for details."
+          examples:
+            application/json:
+              message: "O servidor não pode encontrar o recurso solicitado."
+      deprecated: false
+      x-swagger-router-controller: "LocaisDeAtendimento"
+  /fatoresDeRisco:
+    get:
+      tags:
+      - "Fatores de Risco"
+      summary: "Obter todos os fatores de risco"
+      operationId: "getAllFatoresDeRisco"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Lista de fatores de risco"
+        401:
+          description: "Unexpected error in API call. See HTTP response body for details."
+          examples:
+            application/json:
+              message: "Não autorizado"
+        404:
+          description: "Unexpected error in API call. See HTTP response body for details."
+          examples:
+            application/json:
+              message: "O servidor não pode encontrar o recurso solicitado."
+      x-swagger-router-controller: "FatoresDeRisco"
+  /lesoes:
+    get:
+      tags:
+      - "Lesões"
+      summary: "Obter Lesões"
+      description: ""
+      operationId: "LesoesGet"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Lista de lesões"
+        401:
+          description: "Unexpected error in API call. See HTTP response body for details."
+          examples:
+            application/json:
+              message: "Não autorizado"
+        404:
+          description: "Unexpected error in API call. See HTTP response body for details."
+          examples:
+            application/json:
+              message: "O servidor não pode encontrar o recurso solicitado."
+      deprecated: false
+      x-swagger-router-controller: "Leses"
+  /rastreamentos:
+    get:
+      tags:
+      - "Rastreamento"
+      summary: "Criar Rastreamento"
+      description: ""
+      operationId: "RastreamentosGet"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Lista de rastreamentos"
+      deprecated: false
+      x-swagger-router-controller: "Rastreamento"
+definitions: {}
