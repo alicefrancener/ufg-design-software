@@ -1,6 +1,6 @@
 # Design de API
 
-Utilizei como guidelines para design da minha API o [API Guide](https://apiguide.readthedocs.io), algumas dessas guidelines são listada abaixo. O design foi realizado no [Swagger](https://swagger.io/) de acordo com a [OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification).
+Utilizei como guidelines para design da minha API o [API Guide](https://apiguide.readthedocs.io), algumas dessas guidelines são listada abaixo. O design foi realizado no [Swagger](https://swagger.io/) de acordo com a [OpenAPI-Specification, versão 3.0.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md).
 
 O estilo arquitetural REST tem como princípio definir recursos que podem ser manipulados usando um pequeno conjunto de métodos. Os recursos são conhecidos como substantivos (nouns) e os métodos como verbos (verbs) das APIs. Utilizando o protocolo HTTP, os nomes de recursos são mapeados para URLs e os métodos são associados aos métodos HTTP POST, GET, PUT, PATCH e DELETE.
 
