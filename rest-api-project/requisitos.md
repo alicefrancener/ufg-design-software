@@ -11,17 +11,26 @@ A API deverá oferecer serviços para a gestão dos dados coletados pelo cliente
  5. Compreender o modelo de dados
  6. Estabelecer quais serão as requisições
 
-## Requisitos preliminares
+## Requisitos
 
 - R1 O módulo deverá oferecer uma Restful API seguindo "boas" práticas de _design_ de APIs, a serem detalhadas oportunamente.
-- R2 O módulo deverá oferecer acesso para a gestão dos dados do Projeto OCD. Isso significa permitir a criação, remoção e atualização dos dados geridos pelo OCD.
-
-## Requisitos (versão 2)
-
-- R3 Listar todos os *locais de atendimento*
-- R4 Listar *locais de atendimento* por região
-- R5 Listar *fatores de risco*
-- R6 Listar *lesões*
-- R7 Criar *rastreamento*
-- R8 Listar *rastreamentos* por id do usuário
-- R8 Listar *rastreamentos* pelo nome do usuário
+- R2 O módulo deverá oferecer acesso para a gestão dos dados do Projeto OCD. Isso significa permitir a criação e atualização dos dados geridos pelo OCD.
+- R3 O módulo será utilizado, a princípio, em um contexto restrito. Desse modo, não irei inserir questões de segurança no design da API.
+- R4 Criar *local de atendimento*
+- R5 Listar todos os *locais de atendimento*
+- R6 Listar *locais de atendimento* por região
+- R7 Atualizar *local de atendimento* por Id
+- R8 Criar *fator de risco*
+- R9 Listar *fatores de risco*
+- R10 Atualizar *fator de risco* por Id
+- R11 Criar *lesão*
+- R12 Listar *lesões*
+- R13 Atualizar *lesão* por Id
+- R14 Criar *paciente*
+- R15 Listar *paciente* por Id
+- R16 Atualizar *paciente* por Id
+- R17 Criar *rastreamento*
+- R19 Listar *rastreamentos*
+- R18 Listar *rastreamentos* por Id
+- R19 Atualizar *rastreamento* por Id
+- R20 A priori, não serão criados métodos para deletar os registros por se tratar de dados do domínio da saúde
