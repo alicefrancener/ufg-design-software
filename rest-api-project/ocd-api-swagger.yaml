@@ -13,19 +13,18 @@ servers:
   - url: 'http://localhost:8080'
     description: Servidor local
 paths:
-  /locaisDeAtendimento:
+  /locais:
     get:
-      description: ''
-      summary: Obter Locais de Atendimento
+      description: Obter todos os locais de atendimento
       tags:
       - Locais de Atendimento
-      operationId: getAll
+      operationId: findLocais
       produces:
       - application/json
       parameters: []
       responses:
         200:
-          description: 'Lista de locais de atendimento'
+          description: 'Um array com todos os locais de atendimento'
           content:
             application/json:
               schema:
@@ -37,19 +36,12 @@ paths:
           examples:
             application/json:
               message: Não autorizado
-        404:
-          description: Unexpected error in API call. See HTTP response body for details.
-          examples:
-            application/json:
-              message: O servidor não pode encontrar o recurso solicitado.
-  /locaisDeAtendimento/{regiao}:
+  /locais/{regiao}:
     get:
-      description: ''
-      summary: Obter Locais de Atendimento por região
+      description: Obter todo os locais de atendimento de uma determinada região. Caso não existam locais de atendimento em uma determinada região, será retornado um array vazio.
       tags:
       - Locais de Atendimento
-      operationId: LocaisDeAtendimentoByRegiaoGet
-      deprecated: false
+      operationId: findLocaisByRegiao
       produces:
       - application/json
       parameters:
@@ -60,7 +52,7 @@ paths:
         description: Região de um local de atendimento.
       responses:
         200:
-          description: 'Lista de locais de atendimento da região'
+          description: 'Um array com todos os locais de atendimento da região requisitada'
           content:
             application/json:
               schema:
@@ -76,13 +68,13 @@ paths:
           description: Unexpected error in API call. See HTTP response body for details.
           examples:
             application/json:
-              message: O servidor não pode encontrar o recurso solicitado.
-  /fatoresDeRisco:
+              message: O servidor não encontrou locais para a região especificada.
+  /fatores:
     get:
       summary: Obter todos os fatores de risco
       tags:
       - Fatores de Risco
-      operationId: getAllFatoresDeRisco
+      operationId: getAll
       produces:
       - application/json
       responses:
@@ -99,19 +91,13 @@ paths:
           examples:
             application/json:
               message: Não autorizado
-        404:
-          description: Unexpected error in API call. See HTTP response body for details.
-          examples:
-            application/json:
-              message: O servidor não pode encontrar o recurso solicitado.
   /lesoes:
     get:
       description: ''
       summary: Obter Lesões
       tags:
       - Lesões
-      operationId: LesoesGet
-      deprecated: false
+      operationId: getAll
       produces:
       - application/json
       parameters: []
@@ -129,18 +115,13 @@ paths:
           examples:
             application/json:
               message: Não autorizado
-        404:
-          description: Unexpected error in API call. See HTTP response body for details.
-          examples:
-            application/json:
-              message: O servidor não pode encontrar o recurso solicitado.
   /rastreamentos:
     get:
       description: ''
       summary: Criar Rastreamento
       tags:
       - Rastreamento
-      operationId: RastreamentosGet
+      operationId: getAll
       deprecated: false
       produces:
       - application/json
