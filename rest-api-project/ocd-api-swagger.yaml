@@ -101,7 +101,7 @@ paths:
           description: Locais de atendimento dessa região não puderem ser listados. Erro no servidor.
   /fatores:
     get:
-      summary: Obter todos os fatores de risco
+      description: Obter todos os fatores de risco
       tags:
       - Fatores de Risco
       produces:
@@ -161,7 +161,7 @@ paths:
           description: Fator de risco não pode ser atualizado. Erro no servidor
   /lesoes:
     get:
-      summary: Obter lesões
+      description: Obter lesões
       tags:
       - Lesões
       produces:
@@ -221,7 +221,7 @@ paths:
           description: Lesão não pode ser atualizada. Erro no servidor
   /rastreamentos:
     get:
-      summary: Criar Rastreamento
+      description: Obter Rastreamentos
       tags:
       - Rastreamentos
       produces:
