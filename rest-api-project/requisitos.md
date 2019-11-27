@@ -37,8 +37,8 @@ A API deverá oferecer serviços para a gestão dos dados coletados pelo cliente
 
 ## Produto
 
-Algumas guidelines para o design encontram-se [aqui](rest-api-project/api-design-guidelines.md).
+Algumas guidelines para o design encontram-se [aqui](api-design-guidelines.md).
 
-Uma primeira versão da API foi projetada utilizando o modelo do [API Blueprint](rest-api-project/ocd-api.apib). Posteriormente, modifiquei o projeto para o modelo adotado pelo Swagger seguindo as especificações da OpenAPI, como descrito [aqui](rest-api-project/api-design-guidelines.md).
+Uma primeira versão da API foi projetada utilizando o modelo do [API Blueprint](ocd-api.apib). Posteriormente, modifiquei o projeto para o modelo adotado pelo Swagger seguindo as especificações da OpenAPI, como descrito [aqui](api-design-guidelines.md).
 
-O design da API encontra-se nesse arquivo: [design-api](rest-api-project/ocd-api-swagger.yaml). Também, foi utilizado o [swagger-codegen](https://github.com/swagger-api/swagger-codegen) para gerar um projeto base de acordo com o design. Esse projeto encontra-se [aqui](rest-api-project/nodejs-server) com diretivas de como utilizá-lo no [README](rest-api-project/nodejs-server/README.md).
+O design da API encontra-se nesse arquivo: [design-api](ocd-api-swagger.yaml).
