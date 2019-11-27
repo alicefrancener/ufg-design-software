@@ -95,6 +95,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LocalDeAtendimento'
+        '404':
+          description: Locais de atendimento não encontrados para a região fornecida
         '500':
           description: Locais de atendimento dessa região não puderem ser listados. Erro no servidor.
   /fatores:
@@ -277,6 +279,32 @@ paths:
           description: Rastreamento não encontrado  
         '500':
           description: Rastreamento não pode ser atualizado. Erro no servidor
+  /rastreamentos/{id}:
+    get:
+      description: Obter rastreamento por id
+      tags:
+      - Rastreamentos
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: string
+        description: Id do rastreamento desejado
+      responses:
+        '200':
+          description: 'Rastreamento obtido com sucesso'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rastreamento'
+        '404':
+          description: Rastreamento não encontrado  
+        '500':
+          description: Rastreamento não pode ser obtido. Erro no servidor.
 components:
   schemas:
     Usuario:
