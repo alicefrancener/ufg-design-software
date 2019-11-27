@@ -305,6 +305,75 @@ paths:
           description: Rastreamento não encontrado  
         '500':
           description: Rastreamento não pode ser obtido. Erro no servidor.
+  /pacientes:
+    post:
+      description: Criar paciente
+      tags:
+      - Pacientes
+      consumes:
+      - application/json
+      requestBody:
+        description: Dados do paciente a ser criado
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Paciente'
+      responses:
+        '201':
+          description: Paciente criado
+        '400':
+          description: Parêmetros do paciente ausentes ou incorretamente informados.
+        '500':
+          description: Paciente não pode ser criado. Erro no servidor.
+    put:
+      description: Atualizar paciente
+      tags:
+      - Pacientes
+      consumes:
+      - application/json
+      requestBody:
+        description: Dados do paciente que se deseja atualizar 
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Paciente'
+      responses:
+        '201':
+          description: Paciente atualizado
+        '400':
+          description: Parâmetros do paciente ausentes ou incorretamente informados
+        '404':
+          description: Paciente não encontrado  
+        '500':
+          description: Paciente não pode ser atualizado. Erro no servidor
+  /pacientes/{id}:
+    get:
+      description: Obter paciente por id
+      tags:
+      - Pacientes
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: string
+        description: Id do paciente desejado
+      responses:
+        '200':
+          description: 'Paciente obtido com sucesso'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Paciente'
+        '404':
+          description: Paciente não encontrado  
+        '500':
+          description: Paciente não pode ser obtido. Erro no servidor.
 components:
   schemas:
     Usuario:
