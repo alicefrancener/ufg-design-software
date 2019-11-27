@@ -19,18 +19,18 @@ A API deverá oferecer serviços para a gestão dos dados coletados pelo cliente
 - R4 Criar *local de atendimento*
 - R5 Listar todos os *locais de atendimento*
 - R6 Listar *locais de atendimento* por região
-- R7 Atualizar *local de atendimento* por Id
+- R7 Atualizar *local de atendimento*
 - R8 Criar *fator de risco*
 - R9 Listar *fatores de risco*
-- R10 Atualizar *fator de risco* por Id
+- R10 Atualizar *fator de risco*
 - R11 Criar *lesão*
 - R12 Listar *lesões*
-- R13 Atualizar *lesão* por Id
+- R13 Atualizar *lesão*
 - R14 Criar *paciente*
 - R15 Listar *paciente* por Id
-- R16 Atualizar *paciente* por Id
+- R16 Atualizar *paciente*
 - R17 Criar *rastreamento*
 - R19 Listar *rastreamentos*
 - R18 Listar *rastreamentos* por Id
-- R19 Atualizar *rastreamento* por Id
+- R19 Atualizar *rastreamento*
 - R20 A priori, não serão criados métodos para deletar os registros por se tratar de dados do domínio da saúde

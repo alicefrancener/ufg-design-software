@@ -156,17 +156,14 @@ paths:
         '404':
           description: Fator de risco não encontrado  
         '500':
-          description: Fator de risco não pode ser criado. Erro no servidor
+          description: Fator de risco não pode ser atualizado. Erro no servidor
   /lesoes:
     get:
-      description: ''
-      summary: Obter Lesões
+      summary: Obter lesões
       tags:
       - Lesões
-      operationId: getAll
       produces:
       - application/json
-      parameters: []
       responses:
         200:
           description: 'Lista de lesões'
@@ -176,11 +173,50 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Lesao'
-        401:
-          description: Unexpected error in API call. See HTTP response body for details.
-          examples:
-            application/json:
-              message: Não autorizado
+        '500':
+          description: Fatores de risco não puderem ser listados. Erro no servidor.
+    post:
+      description: Criar lesao
+      tags:
+      - Lesões
+      consumes:
+      - application/json
+      requestBody:
+        description: Dados da lesão
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lesao'
+      responses:
+        '201':
+          description: Lesão criada
+        '400':
+          description: Parâmetros ausentes ou incorretamente informados.
+        '500':
+          description: Lesão não pode ser criada. Erro no servidor.
+    put:
+      description: Atualizar registro de lesão existente
+      tags:
+      - Lesões
+      consumes:
+      - application/json
+      requestBody:
+        description: Dados da lesão que se deseja atualizar 
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lesao'
+      responses:
+        '201':
+          description: Lesão atualizada
+        '400':
+          description: Parâmetros da lesão ausentes ou incorretamente informados
+        '404':
+          description: Lesão não encontrado  
+        '500':
+          description: Lesão não pode ser atualizada. Erro no servidor
   /rastreamentos:
     get:
       description: ''
