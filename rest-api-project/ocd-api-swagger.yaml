@@ -1,5 +1,5 @@
 swagger: '2.0'
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
   title: 'Oral Cancer Detect API'
   description: 'Exemplo de API para gerenciar dados de saúde.'
@@ -87,7 +87,7 @@ paths:
         type: string
         description: Região de um local de atendimento.
       responses:
-        200:
+        '200':
           description: 'Locais de atendimento da região obtidos com sucesso'
           content:
             application/json:
@@ -105,7 +105,7 @@ paths:
       produces:
       - application/json
       responses:
-        200:
+        '200':
           description: 'Lista de fatores de risco'
           content:
             application/json:
@@ -165,7 +165,7 @@ paths:
       produces:
       - application/json
       responses:
-        200:
+        '200':
           description: 'Lista de lesões'
           content:
             application/json:
@@ -219,17 +219,13 @@ paths:
           description: Lesão não pode ser atualizada. Erro no servidor
   /rastreamentos:
     get:
-      description: ''
       summary: Criar Rastreamento
       tags:
-      - Rastreamento
-      operationId: getAll
-      deprecated: false
+      - Rastreamentos
       produces:
       - application/json
-      parameters: []
       responses:
-        200:
+        '200':
           description: 'Lista de rastreamentos'
           content:
             application/json:
@@ -237,6 +233,50 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Rastreamento'
+        '500':
+          description: Fatores de risco não puderem ser listados. Erro no servidor.
+    post:
+      description: Criar rastreamento
+      tags:
+      - Rastreamentos
+      consumes:
+      - application/json
+      requestBody:
+        description: Dados do rastreamento a ser criado
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rastreamento'
+      responses:
+        '201':
+          description: Rastreamento criado
+        '400':
+          description: Parâmetros ausentes ou incorretamente informados.
+        '500':
+          description: Rastreamento não pode ser criado. Erro no servidor.
+    put:
+      description: Atualizar registro de rastreamento
+      tags:
+      - Rastreamentos
+      consumes:
+      - application/json
+      requestBody:
+        description: Dados do rastreamento que se deseja atualizar 
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rastreamento'
+      responses:
+        '201':
+          description: Rastreamento atualizado
+        '400':
+          description: Parâmetros do rastreamento ausentes ou incorretamente informados
+        '404':
+          description: Rastreamento não encontrado  
+        '500':
+          description: Rastreamento não pode ser atualizado. Erro no servidor
 components:
   schemas:
     Usuario:
@@ -339,7 +379,9 @@ tags:
     description: 'Coleção de Fatores de Risco'
   - name: Lesões
     description: 'Coleção de Lesões'
-  - name: Rastreamento
-    description: 'Coleção de Rastreamento'
+  - name: Rastreamentos
+    description: 'Coleção de Rastreamentos'
+  - name: Pacientes
+    description: 'Coleção de Pacientes'
 schemes:
  - https
