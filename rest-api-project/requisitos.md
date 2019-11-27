@@ -34,3 +34,11 @@ A API deverá oferecer serviços para a gestão dos dados coletados pelo cliente
 - R18 Listar *rastreamentos* por Id
 - R19 Atualizar *rastreamento*
 - R20 A priori, não serão criados métodos para deletar os registros por se tratar de dados do domínio da saúde
+
+## Produto
+
+Algumas guidelines para o design encontram-se [aqui](rest-api-project/api-design-guidelines.md).
+
+Uma primeira versão da API foi projetada utilizando o modelo do [API Blueprint](rest-api-project/ocd-api.apib). Posteriormente, modifiquei o projeto para o modelo adotado pelo Swagger seguindo as especificações da OpenAPI, como descrito [aqui](rest-api-project/api-design-guidelines.md).
+
+O design da API encontra-se nesse arquivo: [design-api](rest-api-project/ocd-api-swagger.yaml). Também, foi utilizado o [swagger-codegen](https://github.com/swagger-api/swagger-codegen) para gerar um projeto base de acordo com o design. Esse projeto encontra-se [aqui](rest-api-project/nodejs-server) com diretivas de como utilizá-lo no [README](rest-api-project/nodejs-server/README.md).
