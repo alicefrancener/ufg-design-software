@@ -18,12 +18,11 @@ paths:
       description: Obter todos os locais de atendimento
       tags:
       - Locais de Atendimento
-      operationId: findLocais
       produces:
       - application/json
       parameters: []
       responses:
-        200:
+        '200':
           description: 'Um array com todos os locais de atendimento'
           content:
             application/json:
@@ -31,11 +30,52 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LocalDeAtendimento'
-        401:
-          description: Unexpected error in API call. See HTTP response body for details.
-          examples:
-            application/json:
-              message: Não autorizado
+        '500':
+          description: Local de atendimento não pode ser criado. Erro no servidor.
+    post:
+      description: Criar local de atendimento
+      tags:
+      - Locais de Atendimento
+      produces:
+      - application/json
+      requestBody:
+        description: Dados do local de atendimento
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocalDeAtendimento'
+      responses:
+        '201':
+          description: Local de atendimento criado
+        '400':
+          description: Parâmetros ausentes ou incorretamente informados.
+        '500':
+          description: Local de atendimento não pode ser criado. Erro no servidor.
+    put:
+      description: Atualizar local de atendimento existente
+      tags:
+      - Locais de Atendimento
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      requestBody:
+        description: Dados do local de atendimento que se deseja atualizar 
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocalDeAtendimento'
+      responses:
+        '201':
+          description: Local de atendimento criado
+        '400':
+          description: Parâmetros ausentes ou incorretamente informados
+        '404':
+          description: Local de atendimento não encontrado  
+        '500':
+          description: Local de atendimento não pode ser criado. Erro no servidor
   /locais/{regiao}:
     get:
       description: Obter todo os locais de atendimento de uma determinada região. Caso não existam locais de atendimento em uma determinada região, será retornado um array vazio.
