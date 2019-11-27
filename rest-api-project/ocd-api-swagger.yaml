@@ -18,12 +18,13 @@ paths:
       description: Obter todos os locais de atendimento
       tags:
       - Locais de Atendimento
+      consumes:
+      - application/json
       produces:
       - application/json
-      parameters: []
       responses:
         '200':
-          description: 'Um array com todos os locais de atendimento'
+          description: 'Locais de atendimento obtidos com sucesso'
           content:
             application/json:
               schema:
@@ -31,11 +32,13 @@ paths:
                 items:
                   $ref: '#/components/schemas/LocalDeAtendimento'
         '500':
-          description: Local de atendimento não pode ser criado. Erro no servidor.
+          description: Locais de atendimento não puderem ser listados. Erro no servidor.
     post:
       description: Criar local de atendimento
       tags:
       - Locais de Atendimento
+      consumes:
+      - application/json
       produces:
       - application/json
       requestBody:
@@ -71,7 +74,7 @@ paths:
         '201':
           description: Local de atendimento criado
         '400':
-          description: Parâmetros ausentes ou incorretamente informados
+          description: Parâmetros do local de atendimento ausentes ou incorretamente informados
         '404':
           description: Local de atendimento não encontrado  
         '500':
@@ -81,7 +84,8 @@ paths:
       description: Obter todo os locais de atendimento de uma determinada região. Caso não existam locais de atendimento em uma determinada região, será retornado um array vazio.
       tags:
       - Locais de Atendimento
-      operationId: findLocaisByRegiao
+      consumes:
+      - application/json
       produces:
       - application/json
       parameters:
@@ -92,23 +96,15 @@ paths:
         description: Região de um local de atendimento.
       responses:
         200:
-          description: 'Um array com todos os locais de atendimento da região requisitada'
+          description: 'Locais de atendimento da região obtidos com sucesso'
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/LocalDeAtendimento'
-        401:
-          description: Unexpected error in API call. See HTTP response body for details.
-          examples:
-            application/json:
-              message: Não autorizado
-        404:
-          description: Unexpected error in API call. See HTTP response body for details.
-          examples:
-            application/json:
-              message: O servidor não encontrou locais para a região especificada.
+        '500':
+          description: Locais de atendimento dessa região não puderem ser listados. Erro no servidor.
   /fatores:
     get:
       summary: Obter todos os fatores de risco
